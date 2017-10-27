@@ -2,11 +2,9 @@
 Get-vm-details
 .Description
     Get virtual machine SBPM info
-	russ 02/05/2016
-    
+	russ 02/05/2016  
 .Example
     ./Get-VmSbpmInfo.ps1
-
 #>
 
 	
@@ -20,7 +18,6 @@ $time = Get-Date ($initalTime) -uformat %H%M
 
 Write-Host "This will provide a list of storage based polices attached to virtual machines" -ForegroundColor Blue
 
-
 Write-Host "---------------------------------------------------------" -ForegroundColor DarkYellow
 Write-Host "Output will be saved to:"  								   -ForegroundColor Yellow
 Write-Host $filepath$filename-$date$time".csv"  					   -ForegroundColor White
@@ -33,8 +30,7 @@ $resultsarray =@()
 $vms = Get-VM 
 
 # Iterates each vm in the $vms variable
-foreach ($vm in $vms){ 
-	          
+foreach ($vm in $vms){ 	          
         write-output "Collecting info for: $($vm.Name)"
 					
 		# Create an array object to hold results, and add data as attributes using the add-member commandlet
@@ -55,7 +51,6 @@ foreach ($vm in $vms){
 
 		# Write array output to results 
 		$resultsarray += $resultObject		
-
 }
 
 # output to gridview
